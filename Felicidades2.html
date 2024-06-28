@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Básico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: yellow; /* Fondo de la página en amarillo */
+            overflow-x: hidden; /* Ocultar barras de desplazamiento horizontales */
+        }
+        h1 {
+            color: #333;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+        .note {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 18px;
+            color: red;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        @keyframes confetti {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            animation: confetti 3s linear infinite;
+        }
+        .confetti:nth-child(2) {
+            left: 20%;
+            animation-duration: 3.5s;
+            background-color: blue;
+        }
+        .confetti:nth-child(3) {
+            left: 70%;
+            animation-duration: 2.5s;
+            background-color: green;
+        }
+        .confetti:nth-child(4) {
+            left: 80%;
+            animation-duration: 3.7s;
+            background-color: yellow;
+        }
+        .spotify-player {
+            margin: 20px auto;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Felicidades!</h1>
+    <p>Te dije que lo ibas a lograr, cada día que pasa me doy cuenta de que tú tienes un gran futuro y que te vas a convertir en una gran mujer, me emociona saber eso. Hoy te acercas un poco más hacia ese futuro y disfruta de la gloria que sientes ahora, te la ganaste Victoria. Cuando te vea en la graduación prometo darte un abrazo enorme hasta romperte las costillas, te quiero mucho cabezona.</p>
+    <img src="https://pa1.aminoapps.com/6793/85618c3a56a4bfef266a5b8d9a46c66c26d0fd1d_00.gif" alt="GIF de celebración">
+
+    <!-- Reproductor de Spotify -->
+    <div class="spotify-player">
+        <iframe src="https://open.spotify.com/embed/track/4GhaiN8g3mwCcbfDLGoYqy?si=8ead535437064d27" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+
+    <div class="note">No sé programar todavía al 100% pero te quería hacer este detalle.</div>
+
+    <!-- Efecto de confeti -->
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+
+    <script>
+        // Generar más confeti
+        for (let i = 0; i < 50; i++) {
+            let confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            confetti.style.backgroundColor = 'hsl(' + Math.random() * 360 + ', 100%, 50%)';
+            document.body.appendChild(confetti);
+        }
+    </script>
+</body>
+</html>
